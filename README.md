@@ -16,6 +16,10 @@ An API to onboard new customers looking to have access to Eden's conceirge servi
  
  Live Link available: http://ameka-art.tk/api/
  
+ The API has been optimized to implement server-side caching using the file method to cache read requests from the server.
+ 
+ This cache lasts for 10 minutes before the server makes a fresh database check for new requests.
+ 
  If you however wish to run locally:
 - Clone the project 
 - Run Migrations to get the database structure
