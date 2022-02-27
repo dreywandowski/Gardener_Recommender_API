@@ -30,8 +30,10 @@ class UserController extends Controller
 
     public function register(Request $request)
     {
+        // TODO: Validation for the inputs
+        $cust =  $request->isCustomer;
         // determines if the user to be created is customer or gardener
-        if($request->isCustomer == 1){
+        if($cust == 'true'){
             $user_type = "Customer";
             $request->is_customer = true;
         }

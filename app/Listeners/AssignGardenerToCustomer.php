@@ -74,15 +74,18 @@ class AssignGardenerToCustomer
 
     private function assignCustomer($gardner_mail, $customer)
     {
-        $customer_assigned = User::where('email',$gardner_mail)->first()->toArray();
+        $customer_assigned = User::where('email',$gardner_mail)->first();
         if ($customer_assigned) {
             function getUserArray($customer)
             {
-                return explode(' ', $customer);
+                return explode(',', $customer);
             }
             $customer = getUserArray($customer);
-           // print_r($customer);die;
-            $customer = array_merge($customer_assigned['assigned_customer'], $customer[0]);
+
+            if(is_null($customer_assigned->assigned_customer)){
+                $customer_assigned->assigned_customer = array();
+}
+            $customer = array_merge($customer_assigned->assigned_customer, $customer);
             $customer_assigned->assigned_customer = $customer;
             $customer_assigned->save();
         }
