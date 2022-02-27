@@ -36,6 +36,13 @@ class UserController extends Controller
     public function register(Request $request)
     {
         // TODO: Validation for the inputs
+        if(!isset($request->fullname) || $request->fullname =='')return response(['message' => 'Name cannot be blank'], 400);
+        if(!isset($request->email) || $request->email =='')return response(['message' => 'Email cannot be blank'], 400);
+        if(!isset($request->password) || $request->password =='')return response(['message' => 'Password cannot be empty'], 400);
+        if(!isset($request->location) || $request->location =='')return response(['message' => 'Please fill in your location'], 400);
+        if(!isset($request->country) || $request->country =='')return response(['message' => 'Please fill in your country'], 400);
+        if(!isset($request->isCustomer) || $request->isCustomer =='')return response(['message' => 'isCustomer field cannot be empty'], 400);
+
         $cust =  $request->isCustomer;
 
         // determines if the user to be created is customer or gardener
