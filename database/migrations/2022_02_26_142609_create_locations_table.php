@@ -21,11 +21,11 @@ class CreateLocationsTable extends Migration
         });
 
         //  foreign keys for locations and country
-        Schema::table('locations', function (Blueprint $table)
-        {
-            $table->foreign('location')->references('location')->on('users')->onUpdate('cascade')->onDelete('cascade');
-            $table->foreign('country')->references('country')->on('users')->onUpdate('cascade')->onDelete('cascade');
-        });
+       // Schema::table('locations', function (Blueprint $table)
+        //{
+            //$table->foreign('location')->references('location')->on('users')->onUpdate('cascade')->onDelete('cascade');
+            //$table->foreign('country')->references('country')->on('users')->onUpdate('cascade')->onDelete('cascade');
+       // });
     }
 
     /**

@@ -14,10 +14,11 @@ An API to onboard new customers looking to have access to Eden's conceirge servi
  Documentation available at: https://documenter.getpostman.com/view/11897292/UVkqrEdv#cd8b3eb0-4e07-4f54-8230-7c4827ceda7c
  
  
- Live Link available: https://garden-recommendation.herokuapp.com/
+ Live Link available: http://ameka-art.tk/api/
  
  If you however wish to run locally:
 - Clone the project 
 - Run Migrations to get the database structure
 - Run seeding to get some dummy data copied
-- Import the sql file (data.sql) to your db to get some other changes
+- Import the sql files (users.sql and locations.sql) to your db to get some other changes like db structure
+and default values.
