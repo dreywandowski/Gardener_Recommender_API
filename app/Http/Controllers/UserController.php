@@ -1,12 +1,13 @@
 <?php
 namespace App\Http\Controllers;
 use App\Events\CustomerCreated;
-use App\Http\Resources\LocationResource;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Resources\UserResource;
+use Illuminate\Support\Facades\Cache;
+
 
 
 class UserController extends Controller
@@ -74,15 +75,48 @@ class UserController extends Controller
      */
     public function getCustomers()
     {
-        $customers = User::select('fullname', 'email' ,'assigned_gardener')->where('is_customer', '=', 1)->get();
-        return response([ 'customers' => UserResource::collection($customers), 'message' => 'Customers Retrieved successfully'], 200);
+        // server-side caching using the file cache method to return list of customers in the cache
+        // or make a fresh query to the db if it doesn't exist and then save the cache for 1 day
+        $customers =  Cache::remember('customers', 86400, function (){
+            $customers = User::select('fullname', 'email' ,'location','country','assigned_gardener')
+                ->where('is_customer', '=', 1)
+                ->get();
+            return response([ 'customers' => UserResource::collection($customers),
+                               'message' => 'Customers Retrieved successfully'], 200);
+        });
+        return response()->json($customers)->getOriginalContent();
     }
 
     public function getGardeners()
     {
-        $gardeners = User::select('fullname', 'country', 'assigned_customer')->where('is_customer', '=', 0)->orderBy('country', 'ASC')->get();
-        //$gardeners->assigned_customer = count($gardeners->assigned_customer);
-        return response([ 'gardeners' => UserResource::collection($gardeners), 'message' => 'Gardeners Retrieved successfully'], 200);
+            $gardeners =  Cache::remember('gardeners', 86400, function () {
+            $gardeners = User::select('fullname as gardener_name', 'location', 'country', 'assigned_customer')
+                ->where('is_customer', '=', 0)
+                ->orderBy('country', 'ASC')
+                ->get()
+                ->toArray();
+
+            $count = 0;
+            $xi = 0;
+            $gardener_response = array();
+            foreach ($gardeners as $gardener) {
+                if (is_null(($gardener['assigned_customer']))) $gardener['assigned_customer'] = array();
+                $count = count($gardener['assigned_customer']);
+
+                $gardener_response[$xi]['gardener_name'] = $gardener['gardener_name'];
+                $gardener_response[$xi]['location'] = $gardener['location'];
+                $gardener_response[$xi]['country'] = $gardener['country'];
+                $gardener_response[$xi]['assigned_customers'] = $gardener['assigned_customer'];
+                $gardener_response[$xi]['no_of_customers'] = $count;
+                $xi++;
+            }
+
+            return response([ 'gardeners' => UserResource::collection($gardener_response),
+                              'message' => 'Gardeners Retrieved successfully'],
+                               200);
+        });
+        return response()->json($gardeners)->getOriginalContent();
+
     }
 
     /**
