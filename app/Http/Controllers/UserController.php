@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Resources\UserResource;
 use Illuminate\Support\Facades\Cache;
+use Tests\Feature\GardenerTest;
 
 
 
@@ -28,11 +29,15 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-
+    public function testUserInput(Request $request){
+        $cust =  $request->isCustomer;
+        GardenerTest::assertEquals('Customer', $cust);
+    }
     public function register(Request $request)
     {
         // TODO: Validation for the inputs
         $cust =  $request->isCustomer;
+
         // determines if the user to be created is customer or gardener
         if($cust == 'true'){
             $user_type = "Customer";
