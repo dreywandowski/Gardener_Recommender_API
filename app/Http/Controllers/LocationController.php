@@ -23,8 +23,8 @@ class LocationController extends Controller
                      ->get();*/
 
         // server-side caching using the file cache method to return list of locations in the cache
-        // or make a fresh query to the db if it doesn't exist and then save the cache for 1 day
-            $locations =  Cache::remember('locations', 86400, function () {
+        // or make a fresh query to the db if it doesn't exist and then save the cache for 10 minutes
+            $locations =  Cache::remember('locations', 600, function () {
             $locations = Locations::select('location', 'country')
                 ->get()
                 ->toArray();
