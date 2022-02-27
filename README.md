@@ -1,4 +1,4 @@
-<p align="center"><a href="https://ouredenlife.com/" target="_blank"><img src="https:dreywandowski.xyz/images/eden-logo_lcepc6.svg" width="350" height="150"></a></p>
+<p align="center"><a href="https://ouredenlife.com/" target="_blank"><img src="https://dreywandowski.xyz/images/eden-logo_lcepc6.svg" width="350" height="150"></a></p>
 
 <p align="center">
 <a href="#"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
