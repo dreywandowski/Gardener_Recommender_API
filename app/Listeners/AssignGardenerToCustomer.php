@@ -3,6 +3,7 @@
 namespace App\Listeners;
 
 use App\Events\CustomerCreated;
+use App\Http\Resources\UserResource;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
 use App\Models\User;
@@ -41,8 +42,11 @@ class AssignGardenerToCustomer
                      'country'     => $customer_loc[0]['country'],
                      'is_customer' => 0
             ])
-                ->get()->random(1)
-                ->toArray();
+                ->get();
+
+            // only assign for active locations and countries
+            if(!$gardner_loc->isEmpty())$gardner_loc->random(1)->toArray();
+
            // print_r($gardner_loc);die;
 
             $gardner = $gardner_loc[0]['fullname'];
