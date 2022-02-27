@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Feb 27, 2022 at 08:24 PM
+-- Generation Time: Feb 27, 2022 at 08:48 PM
 -- Server version: 8.0.28-0ubuntu0.20.04.3
 -- PHP Version: 7.4.3
 
@@ -50,14 +50,15 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `fullname`, `email`, `location`, `country`, `is_customer`, `assigned_gardener`, `assigned_customer`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
 (1, 'Gardener_1', 'dickinson.jayne@example.org', 'Lagos', 'Nigeria', 0, '', NULL, '2022-02-27 19:11:34', '$2y$10$QAPfqhZbeccLCaI5.qpC/.1KnqqDyVcFtKR63L9gi28L4k1K4xm/y', 'AINDRZiF9M', '2022-02-27 19:11:35', '2022-02-27 19:11:35'),
-(2, 'Gardener_1', 'watson.kuphal@example.com', 'Lagos', 'Nigeria', 0, '', NULL, '2022-02-27 19:11:34', '$2y$10$viWtrIlFIJTQqCcraMlzN.LfgBNT4UJTnBG52TDghOfEUKD1gJbHO', 'YTanF0AQRP', '2022-02-27 19:11:35', '2022-02-27 19:11:35'),
-(3, 'Gardener_1', 'doyle.maeve@example.org', 'Lagos', 'Nigeria', 0, '', NULL, '2022-02-27 19:11:34', '$2y$10$h1qpLXYiIZJLVvpD5XAfkODbQxchSoCtw5.hZ.vSPZhI6g50vMypi', '5cVqMMTGXQ', '2022-02-27 19:11:35', '2022-02-27 19:11:35'),
-(4, 'Gardener_1', 'efarrell@example.org', 'Lagos', 'Nigeria', 0, '', NULL, '2022-02-27 19:11:34', '$2y$10$F4n.g9Z3Oe/dGoNuYkI.Y...A36UUnLIzR1s7rI2rwHMZZI9b.cm.', 'xeN6CQ4zZT', '2022-02-27 19:11:35', '2022-02-27 19:11:35'),
-(5, 'Gardener_1', 'imani57@example.org', 'Lagos', 'Nigeria', 0, '', NULL, '2022-02-27 19:11:34', '$2y$10$0O1Eu5xdPWo2G57GjP9zIuh8twYPX2ZcI.58Gm/gTy.dfL1scguZK', 'cTNWMa98c0', '2022-02-27 19:11:35', '2022-02-27 19:11:35'),
-(6, 'Gardener_1', 'guillermo.hermann@example.org', 'Lagos', 'Nigeria', 0, '', NULL, '2022-02-27 19:11:35', '$2y$10$JqQUimO2gYWtDn8.dE0qfuYxBnIeu2cnSTcXbpzhcPeTDa3QErqo6', 'exbrnfkfSR', '2022-02-27 19:11:35', '2022-02-27 19:11:35'),
+(2, 'Gardener_2', 'watson.kuphal@example.com', 'Ibadan', 'Nigeria', 0, '', NULL, '2022-02-27 19:11:34', '$2y$10$viWtrIlFIJTQqCcraMlzN.LfgBNT4UJTnBG52TDghOfEUKD1gJbHO', 'YTanF0AQRP', '2022-02-27 19:11:35', '2022-02-27 19:11:35'),
+(3, 'Gardener_3', 'doyle.maeve@example.org', 'Lagos', 'Nigeria', 0, '', NULL, '2022-02-27 19:11:34', '$2y$10$h1qpLXYiIZJLVvpD5XAfkODbQxchSoCtw5.hZ.vSPZhI6g50vMypi', '5cVqMMTGXQ', '2022-02-27 19:11:35', '2022-02-27 19:11:35'),
+(4, 'Gardener_4', 'efarrell@example.org', 'Nairobi', 'Kenya', 0, '', '[\"Faith Daniel\"]', '2022-02-27 19:11:34', '$2y$10$F4n.g9Z3Oe/dGoNuYkI.Y...A36UUnLIzR1s7rI2rwHMZZI9b.cm.', 'xeN6CQ4zZT', '2022-02-27 19:11:35', '2022-02-27 20:47:26'),
+(5, 'Gardener_5', 'imani57@example.org', 'Mombassa', 'Kenya', 0, '', NULL, '2022-02-27 19:11:34', '$2y$10$0O1Eu5xdPWo2G57GjP9zIuh8twYPX2ZcI.58Gm/gTy.dfL1scguZK', 'cTNWMa98c0', '2022-02-27 19:11:35', '2022-02-27 19:11:35'),
+(6, 'Gardener_6', 'guillermo.hermann@example.org', 'Nairobi', 'Kenya', 0, '', NULL, '2022-02-27 19:11:35', '$2y$10$JqQUimO2gYWtDn8.dE0qfuYxBnIeu2cnSTcXbpzhcPeTDa3QErqo6', 'exbrnfkfSR', '2022-02-27 19:11:35', '2022-02-27 19:11:35'),
 (9, 'EmmAdura', 'teste6@test.com', 'Nairobi', 'Kenya', 1, NULL, NULL, NULL, '$2y$10$kv.4.q76bZseJKbPBoSf.ez/DJD2skVyjd943IcYvyARrJyI6ZPUK', NULL, '2022-02-27 20:04:12', '2022-02-27 20:04:12'),
 (10, 'EmmAduralele', 'test2@test.com', 'Lagos', 'Nigeria', 0, NULL, NULL, NULL, '$2y$10$MMEnFAAcdr//TXgQNb3zX.QvJbqT6tgLPRV1C2zTPHfWiAwKDZQKW', NULL, '2022-02-27 20:04:38', '2022-02-27 20:04:38'),
-(12, 'Victor Moses', 'test2_guard@test.com', 'Ibadan', 'Nigeria', 0, NULL, NULL, NULL, '$2y$10$dUfG66P.MUwIqdWaJv7d/e4xNEBW2oj3oGFIJfv4jCEu5nnMgMgMy', NULL, '2022-02-27 20:18:53', '2022-02-27 20:18:53');
+(12, 'Victor Moses', 'test2_guard@test.com', 'Ibadan', 'Nigeria', 0, NULL, NULL, NULL, '$2y$10$dUfG66P.MUwIqdWaJv7d/e4xNEBW2oj3oGFIJfv4jCEu5nnMgMgMy', NULL, '2022-02-27 20:18:53', '2022-02-27 20:18:53'),
+(14, 'Faith Daniel', 'teste6@faith.com', 'Nairobi', 'Kenya', 1, 'Gardener_4', NULL, NULL, '$2y$10$JHzMmWgHxzRCzBK2s7tkWe43U1fjUGwpE5tAlH/Ug2pFTumL7I8yC', NULL, '2022-02-27 20:47:26', '2022-02-27 20:47:26');
 
 --
 -- Indexes for dumped tables
@@ -78,7 +79,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
