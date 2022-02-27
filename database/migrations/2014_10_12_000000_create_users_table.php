@@ -31,11 +31,11 @@ class CreateUsersTable extends Migration
         });
 
         // self-referencing foreign keys for assigning gardeners and customers
-        Schema::table('users', function (Blueprint $table)
-        {
-            $table->foreign('assigned_gardener')->references('fullname')->on('users')->onUpdate('cascade')->onDelete('cascade');
+       // Schema::table('users', function (Blueprint $table)
+        //{
+           // $table->foreign('assigned_gardener')->references('fullname')->on('users')->onUpdate('cascade')->onDelete('cascade');
             //$table->foreign('assigned_customer')->references('fullname')->on('users')->onUpdate('cascade')->onDelete('cascade');
-        });
+        //});
     }
 
     /**
