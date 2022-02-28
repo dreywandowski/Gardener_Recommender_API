@@ -40,7 +40,21 @@ class GardenerTest extends TestCase
         $response->assertStatus(200);
     }
 
-    // test create customer or gardener endpoint
+    // test create gardener endpoint
+    public function test_create_gardener_endpoint()
+    {
+        $response = $this->post('/api/register', ['fullname' => 'Sally Gardener',
+            'email' => 'feature2@test.com',
+            'password' => '!@#980gff',
+            'location' => 'Lagos',
+            'country' => 'Nigeria',
+            'isCustomer' => false
+        ]);
+
+        $response->assertStatus(201);
+    }
+
+    // test create customer endpoint
     public function test_create_customer_endpoint()
     {
         $response = $this->post('/api/register', ['fullname' => 'Sally Customer',
@@ -54,19 +68,7 @@ class GardenerTest extends TestCase
         $response->assertStatus(201);
     }
 
-    // test create gardener endpoint
-    public function test_create_gardener_endpoint()
-    {
-        $response = $this->post('/api/register', ['fullname' => 'Sally Gardener',
-            'email' => 'feature2@test.com',
-            'password' => '!@#980gfhf',
-            'location' => 'Lagos',
-            'country' => 'Nigeria',
-            'isCustomer' => false
-        ]);
 
-        $response->assertStatus(201);
-    }
 
 
 }
