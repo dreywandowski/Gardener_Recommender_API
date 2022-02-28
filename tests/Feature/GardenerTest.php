@@ -54,19 +54,7 @@ class GardenerTest extends TestCase
         $response->assertStatus(201);
     }
 
-    // test create customer endpoint
-    public function test_create_customer_endpoint()
-    {
-        $response = $this->post('/api/register', ['fullname' => 'Sally Customer',
-                                                      'email' => 'feature@test.com',
-                                                      'password' => '!@#980gfhf',
-                                                      'location' => 'Lagos',
-                                                      'country' => 'Nigeria',
-                                                       'isCustomer' => true
-                                                           ]);
-
-        $response->assertStatus(201);
-    }
+   
 
 
 
