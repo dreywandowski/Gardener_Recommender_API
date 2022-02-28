@@ -22,7 +22,7 @@ class LocationController extends Controller
                      ->orderBy('locations.country', 'DESC')
                      ->get();*/
 
-        // server-side caching using the file cache method to return list of locations in the cache
+        // server-side caching using the database cache method to return list of locations in the cache
         // or make a fresh query to the db if it doesn't exist and then save the cache for 10 minutes
             $locations =  Cache::remember('locations', 600, function () {
             $locations = Locations::select('location', 'country')
@@ -47,10 +47,15 @@ class LocationController extends Controller
                 $location_response[$xi]['customers'] = $customers;
                 $xi++;
             }
-
-            return response(['locations' => LocationResource::collection($location_response),
-                'message' => 'Locations Retrieved successfully'],
-                200);
+                if (!empty($location_response)) {
+                    return response(['locations' => LocationResource::collection($location_response),
+                        'message' => 'Locations Retrieved successfully'],
+                        200);
+                }
+                else{
+                    return response([ 'status' => 0,
+                        'message' => 'No records found'], 200);
+                }
         });
         return response()->json($locations)->getOriginalContent();
     }

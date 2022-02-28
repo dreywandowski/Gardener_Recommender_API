@@ -17,7 +17,7 @@ An API to onboard new customers looking to have access to Eden's conceirge servi
  Live Link available: http://ameka-art.tk
  
  ### Implementations
- - The API has been optimized to implement server-side caching using the file method to cache read requests from the server.
+ - The API has been optimized to implement server-side caching using the database method to cache read requests from the server.
     This cache lasts for 10 minutes before the server makes a fresh database check for new requests.
  - New Customers are automatically assigned a gardener according to their 
  location and country on sign up. This is powered by an Event called "Customer Created" which is called immediately the user is created.
