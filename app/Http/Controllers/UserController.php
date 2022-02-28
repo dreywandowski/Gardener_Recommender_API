@@ -89,20 +89,20 @@ class UserController extends Controller
     {
         // server-side caching using the file cache method to return list of customers in the cache
         // or make a fresh query to the db if it doesn't exist and then save the cache for 10 minutes
-        $customers =  Cache::remember('customers', 600, function (){
+        //$customers =  Cache::remember('customers', 600, function (){
             $customers = User::select('fullname', 'email' ,'location','country','assigned_gardener')
                 ->where('is_customer', '=', 1)
                 ->get();
             return response([ 'customers' => UserResource::collection($customers),
                                'message' => 'Customers Retrieved successfully'], 200);
-        });
-        return response()->json($customers)->getOriginalContent();
+       // });
+        //return response()->json($customers)->getOriginalContent();
     }
 
     public function getGardeners()
     {
 
-            $gardeners =  Cache::remember('gardeners', 600, function () {
+            //$gardeners =  Cache::remember('gardeners', 600, function () {
             $gardeners = User::select('fullname as gardener_name', 'location', 'country', 'assigned_customer')
                 ->where('is_customer', '=', 0)
                 ->orderBy('country', 'ASC')
@@ -127,8 +127,8 @@ class UserController extends Controller
             return response([ 'gardeners' => UserResource::collection($gardener_response),
                               'message' => 'Gardeners Retrieved successfully'],
                                200);
-        });
-        return response()->json($gardeners)->getOriginalContent();
+       // });
+        //return response()->json($gardeners)->getOriginalContent();
 
     }
 
