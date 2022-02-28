@@ -11,8 +11,8 @@
 
 An API to onboard new customers looking to have access to Eden's conceirge services by taking their details and assigning them to gardeners within their geographic regions.
  
- Documentation available at: https://documenter.getpostman.com/view/11897292/UVkqrEdv#cd8b3eb0-4e07-4f54-8230-7c4827ceda7c
- 
+ Documentation available at: <!--https://documenter.getpostman.com/view/11897292/UVkqrEdv#cd8b3eb0-4e07-4f54-8230-7c4827ceda7c-->
+ https://dreywandowski.xyz/api_documentations/gardener_recommendation_api/
  
  Live Link available: http://ameka-art.tk
  
