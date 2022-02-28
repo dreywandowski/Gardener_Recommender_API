@@ -30,10 +30,3 @@ An API to onboard new customers looking to have access to Eden's conceirge servi
 
  
  
- 
- If you wish to run locally:
-- Clone the project 
-- Run Migrations to get the database structure
-- Run seeding to get some dummy data copied
-- Import the sql files (users.sql and locations.sql) to your db to get some other changes like db structure
-and default values.
