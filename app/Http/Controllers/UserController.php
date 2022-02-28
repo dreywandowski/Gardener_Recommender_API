@@ -29,10 +29,7 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function testUserInput(Request $request){
-        $cust =  $request->isCustomer;
-        GardenerTest::assertEquals('Customer', $cust);
-    }
+
     public function register(Request $request)
     {
         // TODO: Validation for the inputs

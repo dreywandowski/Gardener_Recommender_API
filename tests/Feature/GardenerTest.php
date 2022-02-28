@@ -15,19 +15,11 @@ class GardenerTest extends TestCase
      *
      * @return void
      */
-# Test function for Box class
-    public
-    function testBoxContents()
+    public function test_a_basic_request()
     {
-        $box = new Box(['toy']);
-        $this->assertTrue($box->has('toy'));
-        $this->assertFalse($box->has('ball'));
-    }
+        $response = $this->get('/api/locations');
 
-    public function testInput()
-    {
-        UserController::assertEquals('Customer', testUserInput($cust));
-
+        $response->assertStatus(200);
     }
 
     public function testStartsWithALetter()
