@@ -14,13 +14,21 @@ An API to onboard new customers looking to have access to Eden's conceirge servi
  Documentation available at: https://documenter.getpostman.com/view/11897292/UVkqrEdv#cd8b3eb0-4e07-4f54-8230-7c4827ceda7c
  
  
- Live Link available: http://ameka-art.tk/api/
+ Live Link available: http://ameka-art.tk
  
- The API has been optimized to implement server-side caching using the file method to cache read requests from the server.
- 
- This cache lasts for 10 minutes before the server makes a fresh database check for new requests.
- 
+ ### Implentations
+ - The API has been optimized to implement server-side caching using the file method to cache read requests from the server.
+    This cache lasts for 10 minutes before the server makes a fresh database check for new requests.
+ - New Customers are automatically assigned a gardener according to their 
+ location and country on sign up. This is powered by an Event called "Customer Created" which is called immediately the user is created.
+ This event is then implemented by the "AssignGardenerToCustomer" listener.
+ - Feature testing Using the "GardenerTest" feature test file.
+    
 
+
+
+ 
+ 
  
  If you wish to run locally:
 - Clone the project 
