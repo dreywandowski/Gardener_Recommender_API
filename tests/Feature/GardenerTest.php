@@ -15,13 +15,30 @@ class GardenerTest extends TestCase
      *
      * @return void
      */
-    public function test_a_basic_request()
+
+    // test locations endpoint
+    public function test_get_locations()
     {
         $response = $this->get('/api/locations');
 
         $response->assertStatus(200);
     }
 
+    // test customers endpoint
+    public function test_get_customers()
+    {
+        $response = $this->get('/api/customers');
+
+        $response->assertStatus(200);
+    }
+
+    // test gardners endpoint
+    public function test_a_basic_gardeners()
+    {
+        $response = $this->get('/api/gardeners');
+
+        $response->assertStatus(200);
+    }
 
 }
 
