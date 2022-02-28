@@ -44,11 +44,11 @@ class GardenerTest extends TestCase
     // test create customer endpoint -- 201 OK
     public function test_create_customer_created_endpoint()
     {
-        $response = $this->post('/api/register', ['fullname' => 'Sally Customer',
-                                                      'email' => 'feature@test.com',
+        $response = $this->post('/api/register', ['fullname' => 'Taylor Customer',
+                                                      'email' => 'feature_cust@test.com',
                                                       'password' => '!@#980gfhf',
-                                                      'location' => 'Lagos',
-                                                      'country' => 'Nigeria',
+                                                      'location' => 'Nairobi',
+                                                      'country' => 'Kenya',
                                                        'isCustomer' => true
                                                            ]);
 
@@ -59,11 +59,11 @@ class GardenerTest extends TestCase
     // test create customer endpoint -- 400 failed
     public function test_create_customer_failed_endpoint()
     {
-        $response = $this->post('/api/register', ['fullname' => 'Sally Customer',
-            'email' => 'feature@test.com',
+        $response = $this->post('/api/register', ['fullname' => 'Taylor Customer',
+            'email' => 'feature_cust@test.com',
             'password' => '!@#980gfhf',
-            'location' => 'Lagos',
-            'country' => 'Nigeria',
+            'location' => 'Nairobi',
+            'country' => 'Kenya',
             'isCustomer' => true
         ]);
 
