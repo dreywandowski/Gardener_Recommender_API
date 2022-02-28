@@ -78,6 +78,15 @@ class GardenerTest extends TestCase
                                                       'country' => 'Nigeria',
                                                        'isCustomer' => true
                                                            ]);
+        $this->assertJson([
+            'fullname' => ['The name field is required.'],
+            'email' => ['The email field is required.'],
+            'password' => ['The password field is required.'],
+            'location' => ['The location field is required.'],
+            'country' => ['The country field is required.'],
+            'isCustomer' => ['the isCustomer field is required'],
+        ]);
+
 
         $response->assertStatus(201);
     }
