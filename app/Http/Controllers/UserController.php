@@ -61,20 +61,25 @@ class UserController extends Controller
         if(!$check)return response(['message' => 'Country must be Nigeria or Kenya'], 400);
 
         // if all checks passes, create the new user -- customer or gardener
-        $user = User::create([
-            'fullname' => $request->fullname,
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
-            'location' => $request->location,
-            'country' => $request->country,
-            'is_customer' => $request->is_customer
-        ]);
+        try {
+            $user = User::create([
+                'fullname' => $request->fullname,
+                'email' => $request->email,
+                'password' => Hash::make($request->password),
+                'location' => $request->location,
+                'country' => $request->country,
+                'is_customer' => $request->is_customer
+            ]);
 
-        // An event should fire to assign a gardener if the newly-created user is a customer
-        $customer = $user->email;
-        if($user_type == "Customer")CustomerCreated::dispatch($customer);
-        //event(new CustomerCreated($customer));
-
+            // An event should fire to assign a gardener if the newly-created user is a customer
+            $customer = $user->email;
+            if ($user_type == "Customer") CustomerCreated::dispatch($customer);
+            //event(new CustomerCreated($customer));
+        }
+        catch (\Illuminate\Database\QueryException $e)
+{
+    return response(['message' => $e], 400);
+}
 
         return response(['message' => $user_type .' - '.$request->fullname.' created successfully'], 201);
     }
