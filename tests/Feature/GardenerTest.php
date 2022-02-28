@@ -22,21 +22,6 @@ class GardenerTest extends TestCase
         $response->assertStatus(200);
     }
 
-    public function testStartsWithALetter()
-    {
-        $box = new Box(['toy', 'torch', 'ball', 'cat', 'tissue']);
-
-        $results = $box->startsWith('t');
-
-        $this->assertCount(3, $results);
-        $this->assertContains('toy', $results);
-        $this->assertContains('torch', $results);
-        $this->assertContains('tissue', $results);
-
-        // Empty array if passed even
-        $this->assertEmpty($box->startsWith('s'));
-    }
-
 
 }
 
