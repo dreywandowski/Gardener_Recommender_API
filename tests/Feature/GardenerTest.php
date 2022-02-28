@@ -46,8 +46,8 @@ class GardenerTest extends TestCase
         $response = $this->post('/api/register', ['fullname' => 'Sally Gardener',
             'email' => 'feature2@test.com',
             'password' => '!@#980gff33',
-            'location' => 'Lagos',
-            'country' => 'Nigeria',
+            'location' => 'Nairobi',
+            'country' => 'Kenya',
             'isCustomer' => false
         ]);
 
