@@ -93,7 +93,7 @@ class UserController extends Controller
             $customers = User::select('fullname', 'email' ,'location','country','assigned_gardener')
                 ->where('is_customer', '=', 1)
                 ->get();
-            if($customers->isNotEmpty ()){
+            if(!empty($customers)){
                 return response([ 'customers' => UserResource::collection($customers),
                     'message' => 'Customers Retrieved successfully'], 200);
             }
@@ -102,7 +102,7 @@ class UserController extends Controller
                     'message' => 'No records found'], 200);
             }
         });
-        if($customers->isNotEmpty ()) {
+        if(!empty($customers)) {
             return response()->json($customers)->getOriginalContent();
         }
         else{
@@ -135,7 +135,7 @@ class UserController extends Controller
                     $xi++;
                 }
 
-                if ($gardeners->isNotEmpty()) {
+                if (!empty($gardeners)) {
                     return response(['gardeners' => UserResource::collection($gardener_response),
                         'message' => 'Gardeners Retrieved successfully'],
                         200);
@@ -145,7 +145,7 @@ class UserController extends Controller
                         'message' => 'No records found'], 200);
             }
         });
-        if ($gardeners->isNotEmpty()) {
+        if (!empty($gardeners)) {
             return response()->json($gardeners)->getOriginalContent();
         }
         else{
