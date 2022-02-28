@@ -24,7 +24,7 @@ class LocationController extends Controller
 
         // server-side caching using the file cache method to return list of locations in the cache
         // or make a fresh query to the db if it doesn't exist and then save the cache for 10 minutes
-            //$locations =  Cache::remember('locations', 600, function () {
+            $locations =  Cache::remember('locations', 600, function () {
             $locations = Locations::select('location', 'country')
                 ->get()
                 ->toArray();
@@ -51,8 +51,8 @@ class LocationController extends Controller
             return response(['locations' => LocationResource::collection($location_response),
                 'message' => 'Locations Retrieved successfully'],
                 200);
-       // });
-        //return response()->json($locations)->getOriginalContent();
+        });
+        return response()->json($locations)->getOriginalContent();
     }
 
     /**
