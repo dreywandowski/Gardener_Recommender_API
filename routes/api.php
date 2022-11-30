@@ -29,3 +29,6 @@ Route::get('gardeners', [App\Http\Controllers\UserController::class, 'getGardene
 
 // get locations and customers
 Route::get('locations', [App\Http\Controllers\LocationController::class, 'index']);
+
+// get locations and customers
+Route::post('ies', [App\Http\Controllers\iesdbController::class, 'iespush']);

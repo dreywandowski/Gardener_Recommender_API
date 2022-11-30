@@ -14,7 +14,7 @@ An API to onboard new customers looking to have access to Eden's conceirge servi
  Documentation available at: <!--https://documenter.getpostman.com/view/11897292/UVkqrEdv#cd8b3eb0-4e07-4f54-8230-7c4827ceda7c-->
  https://dreywandowski.xyz/api_documentations/gardener_recommendation_api/
  
- This is the live link to the root of the project: http://eden-app.tk .... 
+ This is the live link to the root of the project: https://eden.dreywandowski.xyz .... 
  However the specific routes for each endpoints have been defined in the documentation page.
  
  ### Implementations
